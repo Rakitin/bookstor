@@ -1,0 +1,10 @@
+{% extends "main/layout.html" %}
+
+{% block contant %}
+<h1>{{ book.title }}</h1>
+<h6>
+{% for author in book.author.all %}
+<a href="{% url 'author' author.id %}" >{{ author }}</a>
+{% endfor %}
+</h6>
+{% endblock %}
