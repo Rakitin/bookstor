@@ -6,6 +6,7 @@ from .models import Author, Book
 
 class BooksListView(ListView):
 	model = Book
+	# queryset = Book.objects.filter(title__icontains='war')[:5]
 	template_name = 'main/index.html'
 	context_object_name = 'books'
 

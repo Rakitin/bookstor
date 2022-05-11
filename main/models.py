@@ -1,5 +1,5 @@
 from tabnanny import verbose
-from turtle import mode
+# from turtle import mode
 from django.db import models
 
 class Book(models.Model):
