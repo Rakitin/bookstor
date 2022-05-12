@@ -69,10 +69,10 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
             ],
 			'libraries': {
-				'my_form_tag': 'bookstor.templatetags.my_form_tag',
+				'addclass': 'bookstor.templatetags.addclass',
             },
 			'builtins': [
-				'bookstor.templatetags.my_form_tag'
+				'bookstor.templatetags.addclass'
 			],
 
         },

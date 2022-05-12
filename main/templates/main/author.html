@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 
 {% block contant %}
+<div class="btn-group" role="group">
+	<a class="btn btn-outline-primary" href="{% url 'author_updeate' user_info.id  %}">Изменить</a>
+	<a class="btn btn-outline-primary" href="{% url 'author_delete' user_info.id  %}">Удалить</a>
+</div>
+
 <h1>{{ author }}</h1>
 
 {% for book in author.book_set.all %}

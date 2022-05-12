@@ -10,5 +10,3 @@ class UserUpdateForm(ModelForm):
 			'username': TextInput(attrs={'class': 'form-control'}),
 			'groups': SelectMultiple(attrs={'class': 'form-control'}),
 		}
-		
-		

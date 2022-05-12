@@ -27,7 +27,7 @@ class LogoutView(View):
 		
 class UsersListView(LoginRequiredMixin, ListView):
 	model = User
-	template_name = 'user/index.html'
+	template_name = 'user/users.html'
 	context_object_name = 'users'
 
 class UserDetailView(LoginRequiredMixin, DetailView):
