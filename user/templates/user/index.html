@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+
+{% block contant %}
+<h1>Пользователи</h1>
+
+<a href="{% url 'user_create' %}">Создать</a>
+<br>
+{% for user in users %}
+<a href="{% url 'user' user.id  %}">{{user}}</a>
+<br>
+{% endfor %}
+
+{% endblock %}

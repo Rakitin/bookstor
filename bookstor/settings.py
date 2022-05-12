@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main.apps.MainConfig',
+    'user.apps.UserConfig',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+			'libraries': {
+				'my_form_tag': 'bookstor.templatetags.my_form_tag',
+            },
+			'builtins': [
+				'bookstor.templatetags.my_form_tag'
+			],
+
         },
     },
 ]
@@ -105,6 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = r'/users/login'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

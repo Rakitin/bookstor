@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block contant %}
+<a class="btn btn-primary" href="{% url 'user_updeate' user_info.id  %}">Изменить</a>
+<a class="btn btn-primary" href="{% url 'user_delete' user_info.id  %}">Удалить</a>
+<h1>{{user_info.username}}</h1>
+{% endblock %}

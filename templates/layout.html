@@ -1,4 +1,5 @@
 {% load static %}
+{% load my_form_tag %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +28,12 @@
 					<li class="nav-item">
 						<a class="nav-link" href="{% url 'index' %}">Главная</a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'author_create' %}">Добавить автора</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="{% url 'users' %}">Пользователи</a>
+					</li>
 					{% if user.is_authenticated %}
 					<li class="nav-item  dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,7 +53,7 @@
 		</div>
 	</nav>
 
-	<div class="content">
+	<div class="container">
 		{% block contant %}
 		{% endblock %}
 	</div>

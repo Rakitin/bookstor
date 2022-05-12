@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block contant %}
+<div class="container">
+	<h1>Вход</h1>
+	<form method="post" action="{% url 'login' %}">
+		{% csrf_token %}
+		<div class="mb-3">
+			{{ form.username.label_tag }}
+			{{ form.username | addclass:"form-control" }}
+		</div>
+		<div class="mb-3">
+			{{ form.password.label_tag }}
+			{{ form.password | addclass:"form-control" }}
+		</div>
+		<input class="btn btn-primary" type="submit" value="Вход" />
+		<input type="hidden" name="next" value="{{ next }}" />
+	</form>
+</div>
+{% endblock %}
