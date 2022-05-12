@@ -17,6 +17,9 @@ class Book(models.Model):
 
 	added_at = models.ForeignKey(User, null=True, on_delete=models.CASCADE)
 
+	def get_absolute_url(self):
+		return reverse('book', args=[str(self.pk)])
+
 	def __str__(self) :
 		return self.title
 

@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView
+from django.shortcuts import redirect 
 from .models import Author, Book
 from .forms import BookCreateForm
 
@@ -12,6 +13,7 @@ class BooksListView(LoginRequiredMixin, ListView):
 	# queryset = Book.objects.filter(title__icontains='war')[:5]
 	template_name = 'main/books.html'
 	context_object_name = 'books'
+	paginate_by = 500
 
 class BookDetailView(LoginRequiredMixin, DetailView):
 	model = Book
@@ -20,8 +22,12 @@ class BookDetailView(LoginRequiredMixin, DetailView):
 
 class BookCreateView(LoginRequiredMixin, CreateView):
 	model = Book
+	# model.added_at = 
 	template_name = 'main/book_create.html'
 	form_class = BookCreateForm
+	def form_valid(self, form):
+		form.instance.added_at = self.request.user
+		return super().form_valid(form)
 
 
 class AuthorsListView(LoginRequiredMixin, ListView):

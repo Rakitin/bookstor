@@ -1,6 +1,7 @@
 # from django.urls import reverse
 
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 from django.views.generic.base import View
 from django.contrib.auth import login, logout
 from django.shortcuts import render
@@ -58,12 +59,12 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
 	model = User
 	template_name = 'user/edit.html'
 	form_class = UserUpdateForm
-	success_url = '/users'
+	success_url = reverse_lazy('users')
 	# fields = ['username', 'groups']
 	# form_class = UnitForm
 	
 class UserDeleteView(DeleteView):
 	model = User
 	template_name = 'user/delete.html'
-	success_url = '/users'
+	success_url = reverse_lazy('users')
 	context_object_name = 'unit'

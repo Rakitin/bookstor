@@ -1,20 +1,24 @@
 {% extends "layout.html" %}
 
 {% block contant %}
-
-{% for book in books %}
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-		<h5 class="card-title">{{ book.title }}</h5>
-		<h6 class="card-subtitle mb-2 text-muted">
-			{% for author in book.author.all %}
-			<a href="{% url 'author' author.id %}">{{ author }}</a>
-			{% endfor %}
-		</h6>
-		<p class="card-text">{{ book.description }}</p>
-		<a href="{% url 'book' book.id %}" class="btn btn-primary">Подробнее</a>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+	{% for book in books %}
+	<div class="col">
+		<div class="card">
+			<div class="card-header">
+				<h5>{{ book.title }}</h5>
+			</div>
+			<div class="card-body">
+				<h6 class="card-subtitle mb-2 text-muted">
+					{% for author in book.author.all %}
+					<a href="{% url 'author' author.id %}">{{ author }}</a>
+					{% endfor %}
+				</h6>
+				<p class="card-text">{{ book.description }}</p>
+				<a href="{% url 'book' book.id %}" class="btn btn-primary">Подробнее</a>
+			</div>
+		</div>
 	</div>
+	{% endfor %}
 </div>
-{% endfor %}
-
 {% endblock %}
