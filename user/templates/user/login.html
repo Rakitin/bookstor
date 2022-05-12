@@ -5,14 +5,22 @@
 	<h1>Вход</h1>
 	<form method="post" action="{% url 'login' %}">
 		{% csrf_token %}
+
+		{% if form.errors %}
+		<ol>
+			{% for field, errors in form.errors.items %}
+			{% for error in errors %}
+			<li><strong>{{ error }}</strong></li>
+			{% endfor %}
+			{% endfor %}
+		</ol>
+		{% endif %}
+		{% for field in form %}
 		<div class="mb-3">
-			{{ form.username.label_tag }}
-			{{ form.username | addclass:"form-control" }}
+			{{ field.label_tag }}
+			{{ field | addclass:"form-control" }}
 		</div>
-		<div class="mb-3">
-			{{ form.password.label_tag }}
-			{{ form.password | addclass:"form-control" }}
-		</div>
+		{% endfor %}
 		<input class="btn btn-primary" type="submit" value="Вход" />
 		<input type="hidden" name="next" value="{{ next }}" />
 	</form>

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block contant %}
+<h1>Добавление</h1>
+<form action="" method="post">{% csrf_token %}
+	{% csrf_token %}
+	{% if form.errors %}
+		{% for field, errors in form.errors.items %}
+		{% for error in errors %}
+		<strong>{{ error }}</strong>
+		<br/>
+		{% endfor %}
+		{% endfor %}
+	{% endif %}
+
+	{% for field in form %}
+	<div class="mb-3">
+		{{ field.label_tag }}
+		{{ field | addclass:"form-control" }}
+		{{ field.help_text }}
+	</div>
+	{% endfor %}
+
+	<input class="btn btn-primary"  type="submit" value="Save" />
+  </form>
+{% endblock %}

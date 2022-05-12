@@ -1,6 +1,14 @@
-from django.contrib.auth.forms import AuthenticationForm
-from django import forms
+from django.forms import ModelForm, TextInput, SelectMultiple
+from django.contrib.auth.models import User
 
-class MyAuthenticationForm(AuthenticationForm):
-	username = forms.CharField(label="Имя", max_length=30, attrs='')
-	password = forms.CharField(label="Пароль", widget=forms.PasswordInput)
+class UserUpdateForm(ModelForm):
+	class Meta:
+		model = User
+		fields = ['username', 'groups']
+		
+		widgets = {
+			'username': TextInput(attrs={'class': 'form-control'}),
+			'groups': SelectMultiple(attrs={'class': 'form-control'}),
+		}
+		
+		
