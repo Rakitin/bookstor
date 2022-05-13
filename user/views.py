@@ -67,4 +67,4 @@ class UserDeleteView(DeleteView):
 	model = User
 	template_name = 'user/delete.html'
 	success_url = reverse_lazy('users')
-	context_object_name = 'unit'
+	context_object_name = 'user_info'

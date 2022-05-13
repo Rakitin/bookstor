@@ -1,10 +1,35 @@
 {% extends "layout.html" %}
 
+{% block js %}
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#myModal").on("show.bs.modal", function (event) {
+			$(this).find(".modal-body").load("{% url 'user_delete' user_info.id  %}");
+		});
+
+		$("#btn_delete").click(function () {
+			$("#myModal").modal("show");
+		});
+	});
+</script>
+{% endblock %}
+
 {% block contant %}
+<div id="myModal" class="modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <div class="btn-group" role="group">
 	<a class="btn btn-outline-primary" href="{% url 'user_updeate' user_info.id  %}">Изменить</a>
 	<a class="btn btn-outline-primary" href="{% url 'user_delete' user_info.id  %}">Удалить</a>
+	<a class="btn btn-outline-primary" id="btn_delete" href="#">Удалить</a>
 </div>
 
 <h1>{{user_info.username}}</h1>

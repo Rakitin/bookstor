@@ -1,9 +1,5 @@
-{% extends "layout.html" %}
-
-{% block contant %}
-<form method="POST" action="">
+<form method="POST" action="{% url 'user_delete' user_info.id  %}">
 	{% csrf_token %}
 	<h2>Вы действительно хотите удалить ?</h2>
 	<button class="btn btn-primary" type="submit">Удалить</button>
 </form>
-{% endblock %}
