@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block js %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}
+
+
+{% block contant %}
+
+<h1>Добавить книгу</h1>
+
+<form action="" method="post">
+	{% csrf_token %}
+	
+	<input type="text" name="title">
+	<textarea name="description"></textarea>
+	<input type="text" name="isbn">
+	
+	<div id="author">
+		
+	</div>
+	<a href="#">Добавить автора</a>
+
+	<div id="сatigory">
+		
+	</div>
+	<a href="#">Добавить категорию</a>
+	
+	
+	<!-- <input type="hidden" value="111" name="v1"> -->
+	
+	<input class="btn btn-primary" type="submit" value="Добавить" />
+</form>
+
+{% endblock %}

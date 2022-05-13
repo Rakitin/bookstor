@@ -5,9 +5,15 @@
 <p>
 	<a class="btn btn-outline-primary" href="{% url 'catigory_create' %}">Создать</a>
 </p>
-{% for category in categories %}
-<div>
-	{{ category.name }}
-</div>
-{% endfor %}
+<table class="table table-hover">
+	<tbody>
+		{% for category in categories %}
+		<tr>
+			<td>{{ category.name }}</td>
+			<td><a href="#">Изменит</a></td>
+			<td><a href="#">Удалить</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
 {% endblock %}

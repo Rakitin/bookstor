@@ -1,5 +1,8 @@
+from django.shortcuts import render
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView
+
 from ..models import Book
 from ..forms import BookCreateForm
 
@@ -24,3 +27,15 @@ class BookCreateView(LoginRequiredMixin, CreateView):
 	def form_valid(self, form):
 		form.instance.added_at = self.request.user
 		return super().form_valid(form)
+		
+def create_book(request):
+	if request.method == "POST":
+		# book = Book()
+		# book.title = request.POST.get("name")
+		# dir(request.POST)
+		# print(request.POST.get("title"))
+		# print(dir(request.POST))
+		print(request.POST.getlist())
+		return render(request, "main/book_create2.html")
+	else:
+		return render(request, "main/book_create2.html")
