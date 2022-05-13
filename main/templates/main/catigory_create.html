@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block contant %}
+<h1>Создать категорию</h1>
+<form action="" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input class="btn btn-primary" type="submit" value="Создать" />
+</form>
+{% endblock %}

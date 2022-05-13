@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block contant %}
+<h1>Категории</h1>
+<p>
+	<a class="btn btn-outline-primary" href="{% url 'catigory_create' %}">Создать</a>
+</p>
+{% for category in categories %}
+<div>
+	{{ category.name }}
+</div>
+{% endfor %}
+{% endblock %}

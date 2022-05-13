@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput, Textarea, SelectMultiple
-from .models import Book
+from ..models import Book
 
 class BookCreateForm(ModelForm):
 	class Meta:
