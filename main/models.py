@@ -25,6 +25,7 @@ class Book(models.Model):
 
 	class Meta:
 		verbose_name = 'Книга'
+		verbose_name_plural = 'Книги'
 
 
 class Catigory(models.Model):
@@ -35,6 +36,7 @@ class Catigory(models.Model):
 	
 	class Meta:
 		verbose_name = 'Категория'
+		verbose_name_plural = 'Категории'
 
 
 class Author(models.Model):
@@ -51,3 +53,4 @@ class Author(models.Model):
 
 	class Meta:
 		verbose_name = 'Автор'
+		verbose_name_plural = 'Авторы'

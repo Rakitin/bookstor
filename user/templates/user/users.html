@@ -4,8 +4,11 @@
 {% block contant %}
 <h1>Пользователи</h1>
 
+{% if perms.auth.add_user %}
+<p>
 <a href="{% url 'user_create' %}">Создать</a>
-<br>
+</p>
+{% endif %}
 {% for user in users %}
 <a href="{% url 'user' user.id  %}">{{user}}</a>
 <br>

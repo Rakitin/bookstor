@@ -12,8 +12,8 @@ urlpatterns = [
 	path('authors/', views.AuthorsListView.as_view(), name='authors'),
 	path('author/<int:pk>', views.AuthorDetailView.as_view(), name='author'),
 	path('author/create', views.AuthorCreateView.as_view(), name='author_create'),
-	# path('author/<int:pk>/update', views.UserUpdateView.as_view(), name='author_updeate'),
-	# path('author/<int:pk>/delete', views.UserDeleteView.as_view(), name='author_delete'),
+	path('author/<int:pk>/update', views.AuthorUpdateView.as_view(), name='author_updeate'),
+	path('author/<int:pk>/delete', views.AuthorDeleteView.as_view(), name='author_delete'),
 
 	path('categories/', views.CategoriesListView.as_view(), name='categories'),
 	path('catigory/create', views.CatigoryCreateView.as_view(), name='catigory_create'),

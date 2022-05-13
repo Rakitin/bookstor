@@ -1,5 +1,5 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from ..models import Author
 
 
@@ -19,7 +19,8 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
 	fields = ['first_name', 'last_name']
 	# form_class = UnitForm
 
-# class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+class AuthorUpdateView(LoginRequiredMixin, UpdateView):
+	pass
 # 	model = User
 # 	template_name = 'user/edit.html'
 # 	form_class = UserUpdateForm
@@ -27,7 +28,8 @@ class AuthorCreateView(LoginRequiredMixin, CreateView):
 # 	# fields = ['username', 'groups']
 # 	# form_class = UnitForm
 	
-# class AuthorDeleteView(DeleteView):
+class AuthorDeleteView(DeleteView):
+	pass
 # 	model = User
 # 	template_name = 'user/delete.html'
 # 	success_url = '/users'
